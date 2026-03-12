@@ -1,2 +1,20 @@
-# secure-flask-oracle-db
-A secure database management interface built with Python, Flask, and Oracle SQL featuring robust user roles and concurrency control.
+# Secure Database Management System 🛡️
+
+## Overview
+A dynamic, secure database management interface engineered to handle robust user roles, permissions, and concurrency control. The backend is powered by Oracle SQL, integrating seamlessly with a dynamic front-end web interface built using Python and Flask.
+
+## Key Features
+* **Secure User Roles:** Implemented strict role-based access control (RBAC) and granular database permissions.
+* **Concurrency & Recovery:** Built applying core database recovery and concurrency control principles (ARIES).
+* **Dynamic Web Interface:** Clean, interactive front-end powered by Flask to securely execute backend database logic.
+
+## Tech Stack
+* **Database:** Oracle SQL
+* **Application Layer:** Python, Flask
+* **Frontend:** HTML, CSS
+
+## Showcase
+*(Drag and drop 1 or 2 screenshots of your web interface running right here)*
+
+## Project Status
+Completed - Academic Project (December 2025).
