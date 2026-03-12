@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Secure Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
+    <h1>Welcome, {{ username }}</h1>
+    
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <div class="flash-message">{{ messages[0] }}</div>
+      {% endif %}
+    {% endwith %}
+
+    {% if is_admin %}
+    <div class="admin-panel">
+        <h3>Admin: Provision New User</h3>
+        <form action="{{ url_for('add_user') }}" method="POST" class="add-user-form">
+            <input type="text" name="student_id" placeholder="ID (e.g., S103)" required>
+            <input type="text" name="name" placeholder="Full Name" required>
+            <input type="number" name="grade" placeholder="Grade" required>
+            <input type="text" name="national_id" placeholder="National ID" required>
+            <input type="password" name="password" placeholder="Database Password" required>
+            <button type="submit" class="add-btn">Create User</button>
+        </form>
+    </div>
+    {% endif %}
+
+    <h3>System Records</h3>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Grade</th>
+            {% if is_admin %} <th>National ID</th> <th>Actions</th> {% endif %}
+        </tr>
+
+        {% for student in students %}
+        <tr>
+            <td>{{ student[0] }}</td>
+            <td>{{ student[1] }}</td>
+            
+            <td>
+                {% if is_teacher %}
+                    <form action="{{ url_for('update_grade') }}" method="POST" style="margin: 0; display: inline-flex;">
+                        <input type="hidden" name="student_id" value="{{ student[0] }}">
+                        <input type="number" name="grade" value="{{ student[2] }}" style="width: 70px; margin-right: 5px;">
+                        <button type="submit" class="save-btn">Save</button>
+                    </form>
+                {% else %}
+                    {{ student[2] }}
+                {% endif %}
+            </td>
+
+            {% if is_admin %}
+                <td>{{ student[3] }}</td>
+                <td>
+                    <form action="{{ url_for('delete_user') }}" method="POST" style="margin: 0;">
+                        <input type="hidden" name="student_id" value="{{ student[0] }}">
+                        <button type="submit" class="delete-btn" onclick="return confirm('Delete this user completely?');">Delete</button>
+                    </form>
+                </td>
+            {% endif %}
+        </tr>
+        {% endfor %}
+    </table>
+
+    {% if is_admin %}
+    <div class="audit-section">
+        <h3>Security Forensics (Audit Trail)</h3>
+        <table>
+            <tr>
+                <th>Timestamp</th>
+                <th>User</th>
+                <th>Action Attempted</th>
+                <th>Target Object</th>
+            </tr>
+            {% for log in audit_logs %}
+            <tr>
+                <td>{{ log[0] }}</td>
+                <td>{{ log[1] }}</td>
+                <td>{{ log[2] }}</td>
+                <td>{{ log[3] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    {% endif %}
+
+</body>
+</html>

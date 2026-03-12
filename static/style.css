@@ -1,0 +1,31 @@
+body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f8f9fa; color: #333; padding: 20px; }
+.login-body { display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; }
+
+/* Login Box */
+.login-box { background: white; padding: 40px; border-radius: 8px; width: 320px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+.login-box input { width: 90%; padding: 12px; margin: 10px 0; border: 1px solid #ccc; border-radius: 4px; }
+.login-btn { width: 100%; padding: 12px; background: #0056b3; color: white; border: none; border-radius: 4px; font-weight: bold; cursor: pointer; }
+.login-btn:hover { background: #004494; }
+
+/* Dashboard Buttons */
+.logout-btn { padding: 10px 20px; background: #dc3545; color: white; text-decoration: none; float: right; border-radius: 4px; font-weight: bold; }
+.save-btn { padding: 6px 12px; background: #28a745; color: white; border: none; border-radius: 4px; cursor: pointer; }
+.delete-btn { padding: 6px 12px; background: #dc3545; color: white; border: none; border-radius: 4px; cursor: pointer; }
+.add-btn { padding: 10px 15px; background: #0056b3; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; }
+
+/* Tables */
+table { width: 100%; border-collapse: collapse; margin-top: 15px; background: white; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+th, td { border: 1px solid #dee2e6; padding: 12px; text-align: left; }
+th { background-color: #e9ecef; font-weight: bold; }
+
+/* Admin Add User Panel */
+.admin-panel { background: #e3f2fd; padding: 20px; border-radius: 8px; margin-bottom: 25px; border: 1px solid #b6d4fe; }
+.add-user-form input { padding: 10px; margin-right: 10px; border: 1px solid #ccc; border-radius: 4px; width: 150px; }
+
+/* Messages */
+.flash-message { background: #d4edda; color: #155724; padding: 15px; border-radius: 4px; margin-bottom: 20px; font-weight: bold; border: 1px solid #c3e6cb; }
+.error-msg { background: #f8d7da; color: #721c24; padding: 10px; border-radius: 4px; margin-bottom: 15px; font-weight: bold; }
+
+/* Audits */
+.audit-section { margin-top: 50px; border-top: 3px solid #dee2e6; padding-top: 20px; }
+.audit-section th { background-color: #ffeeba; color: #856404; }
