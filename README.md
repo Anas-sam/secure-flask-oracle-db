@@ -13,8 +13,5 @@ A dynamic, secure database management interface engineered to handle robust user
 * **Application Layer:** Python, Flask
 * **Frontend:** HTML, CSS
 
-## Showcase
-*(Drag and drop 1 or 2 screenshots of your web interface running right here)*
-
 ## Project Status
 Completed - Academic Project (December 2025).
